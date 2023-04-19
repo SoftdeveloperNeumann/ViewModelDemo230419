@@ -21,7 +21,8 @@ class DataFragment : Fragment() {
         binding = FragmentDataBinding.inflate(inflater, container,false)
 
         activity?.let {fragmentActivity ->
-            model = ViewModelProvider(fragmentActivity)[Data::class.java]
+//            model = ViewModelProvider(fragmentActivity)[Data::class.java]
+            model = (activity as MainActivity).model
             model.content.observe(fragmentActivity){value ->
                 binding.tvFragmentOutput.text = value
             }
